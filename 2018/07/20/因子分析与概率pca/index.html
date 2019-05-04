@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | Machaut&#39;s Blogs</title>
+  <title>线性因子模型与概率pca | Machaut&#39;s Blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Machaut&apos;s Blogs">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Machaut&#39;s Blogs">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="线性因子模型许多深度学习的研究涉及构建输入的概率模型$P_{model}(x)$, 在给定其他变量的情况下， 这样的模型可以使用概率推断来预测器环境中的任何变量。许多这样的模型还具有潜变量h,  其中$P_{model}(x)=E_{h}P_{model}(x|h)$。这些潜变量提供了另外一种数据的表示方法，通常都是些低维的表示。其中，关于潜变量的最简单的概率模型就是接下来介绍的线性因子模型。可以">
+<meta name="keywords" content="深度学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性因子模型与概率pca">
+<meta property="og:url" content="http://yoursite.com/2018/07/20/因子分析与概率pca/index.html">
 <meta property="og:site_name" content="Machaut&#39;s Blogs">
-<meta property="og:description" content="Machaut&apos;s Blogs">
+<meta property="og:description" content="线性因子模型许多深度学习的研究涉及构建输入的概率模型$P_{model}(x)$, 在给定其他变量的情况下， 这样的模型可以使用概率推断来预测器环境中的任何变量。许多这样的模型还具有潜变量h,  其中$P_{model}(x)=E_{h}P_{model}(x|h)$。这些潜变量提供了另外一种数据的表示方法，通常都是些低维的表示。其中，关于潜变量的最简单的概率模型就是接下来介绍的线性因子模型。可以">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-04T06:37:21.493Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Machaut&#39;s Blogs">
-<meta name="twitter:description" content="Machaut&apos;s Blogs">
+<meta name="twitter:title" content="线性因子模型与概率pca">
+<meta name="twitter:description" content="线性因子模型许多深度学习的研究涉及构建输入的概率模型$P_{model}(x)$, 在给定其他变量的情况下， 这样的模型可以使用概率推断来预测器环境中的任何变量。许多这样的模型还具有潜变量h,  其中$P_{model}(x)=E_{h}P_{model}(x|h)$。这些潜变量提供了另外一种数据的表示方法，通常都是些低维的表示。其中，关于潜变量的最简单的概率模型就是接下来介绍的线性因子模型。可以">
   
     <link rel="alternative" href="/atom.xml" title="Machaut&#39;s Blogs" type="application/atom+xml">
   
@@ -163,36 +165,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-因子分析与概率pca" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/20/因子分析与概率pca/" class="archive-article-date">
-  	<time datetime="2018-07-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-20</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/20/因子分析与概率pca/">线性因子模型与概率pca</a>
+    <h1 class="article-title" itemprop="name">
+      线性因子模型与概率pca
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/07/20/因子分析与概率pca/" class="archive-article-date">
+  	<time datetime="2018-07-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="线性因子模型"><a href="#线性因子模型" class="headerlink" title="线性因子模型"></a>线性因子模型</h1><h4 id="许多深度学习的研究涉及构建输入的概率模型-P-model-x-在给定其他变量的情况下，-这样的模型可以使用概率推断来预测器环境中的任何变量。许多这样的模型还具有潜变量h-其中-P-model-x-E-h-P-model-x-h-。这些潜变量提供了另外一种数据的表示方法，通常都是些低维的表示。其中，关于潜变量的最简单的概率模型就是接下来介绍的线性因子模型。可以采用这种简单的模型来混合组成或扩展为更大的深度概率模型。"><a href="#许多深度学习的研究涉及构建输入的概率模型-P-model-x-在给定其他变量的情况下，-这样的模型可以使用概率推断来预测器环境中的任何变量。许多这样的模型还具有潜变量h-其中-P-model-x-E-h-P-model-x-h-。这些潜变量提供了另外一种数据的表示方法，通常都是些低维的表示。其中，关于潜变量的最简单的概率模型就是接下来介绍的线性因子模型。可以采用这种简单的模型来混合组成或扩展为更大的深度概率模型。" class="headerlink" title="许多深度学习的研究涉及构建输入的概率模型$P_{model}(x)$, 在给定其他变量的情况下， 这样的模型可以使用概率推断来预测器环境中的任何变量。许多这样的模型还具有潜变量h,  其中$P_{model}(x)=E_{h}P_{model}(x|h)$。这些潜变量提供了另外一种数据的表示方法，通常都是些低维的表示。其中，关于潜变量的最简单的概率模型就是接下来介绍的线性因子模型。可以采用这种简单的模型来混合组成或扩展为更大的深度概率模型。"></a>许多深度学习的研究涉及构建输入的概率模型$P_{model}(x)$, 在给定其他变量的情况下， 这样的模型可以使用概率推断来预测器环境中的任何变量。许多这样的模型还具有潜变量h,  其中$P_{model}(x)=E_{h}P_{model}(x|h)$。这些潜变量提供了另外一种数据的表示方法，通常都是些低维的表示。其中，关于潜变量的最简单的概率模型就是接下来介绍的线性因子模型。可以采用这种简单的模型来混合组成或扩展为更大的深度概率模型。</h4><a id="more"></a>
+<h4 id="PCA和LDA是最常见的线性降维方法，它们按照某种准则为数据集-lbrace-x-i-rbrace-i-1-n-找到一个最优投影方向-W-和截距-b-，然后做变换-z-i-Wx-i-b-得到降维后的数据集-lbrace-z-i-rbrace-i-1-n-。因为-z-i-Wx-i-b-是一个线性变换（严格来说叫仿射变换，因为有截距项），所以这两种方法叫做线性降维。"><a href="#PCA和LDA是最常见的线性降维方法，它们按照某种准则为数据集-lbrace-x-i-rbrace-i-1-n-找到一个最优投影方向-W-和截距-b-，然后做变换-z-i-Wx-i-b-得到降维后的数据集-lbrace-z-i-rbrace-i-1-n-。因为-z-i-Wx-i-b-是一个线性变换（严格来说叫仿射变换，因为有截距项），所以这两种方法叫做线性降维。" class="headerlink" title="PCA和LDA是最常见的线性降维方法，它们按照某种准则为数据集 $\lbrace x_i \rbrace_{i=1}^n$ 找到一个最优投影方向 W 和截距 b ，然后做变换 $z_i = Wx_i+b$ 得到降维后的数据集$ \lbrace z_i \rbrace_{i=1}^n$ 。因为$z_i = Wx_i+b$ 是一个线性变换（严格来说叫仿射变换，因为有截距项），所以这两种方法叫做线性降维。"></a>PCA和LDA是最常见的线性降维方法，它们按照某种准则为数据集 $\lbrace x_i \rbrace_{i=1}^n$ 找到一个最优投影方向 W 和截距 b ，然后做变换 $z_i = Wx_i+b$ 得到降维后的数据集$ \lbrace z_i \rbrace_{i=1}^n$ 。因为$z_i = Wx_i+b$ 是一个线性变换（严格来说叫仿射变换，因为有截距项），所以这两种方法叫做线性降维。</h4><h4 id="非线性降维的两类代表方法是流形降维和AutoEncoders，这两类方法也体现出了两种不同角度的“非线性”。流形方法的非线性体现在它认为数据分布在一个低维流形上，而流形本身就是非线性的，流形降维的代表方法是两篇2000年的scinece论文提出的：多维放缩-multidimensional-scaling-MDS-和局部线性嵌入-locally-linear-embedding-LLE-。"><a href="#非线性降维的两类代表方法是流形降维和AutoEncoders，这两类方法也体现出了两种不同角度的“非线性”。流形方法的非线性体现在它认为数据分布在一个低维流形上，而流形本身就是非线性的，流形降维的代表方法是两篇2000年的scinece论文提出的：多维放缩-multidimensional-scaling-MDS-和局部线性嵌入-locally-linear-embedding-LLE-。" class="headerlink" title="非线性降维的两类代表方法是流形降维和AutoEncoders，这两类方法也体现出了两种不同角度的“非线性”。流形方法的非线性体现在它认为数据分布在一个低维流形上，而流形本身就是非线性的，流形降维的代表方法是两篇2000年的scinece论文提出的：多维放缩(multidimensional scaling, MDS)和局部线性嵌入(locally linear embedding, LLE)。"></a>非线性降维的两类代表方法是流形降维和AutoEncoders，这两类方法也体现出了两种不同角度的“非线性”。流形方法的非线性体现在它认为数据分布在一个低维流形上，而流形本身就是非线性的，流形降维的代表方法是两篇2000年的scinece论文提出的：多维放缩(multidimensional scaling, MDS)和局部线性嵌入(locally linear embedding, LLE)。</h4><h4 id="线性因子模型描述如下的数据生成过程。首先，从一个数据分布中抽取解释性因子h，"><a href="#线性因子模型描述如下的数据生成过程。首先，从一个数据分布中抽取解释性因子h，" class="headerlink" title="线性因子模型描述如下的数据生成过程。首先，从一个数据分布中抽取解释性因子h，"></a>线性因子模型描述如下的数据生成过程。首先，从一个数据分布中抽取解释性因子h，</h4><p>$$h \sim p(h)$$</p>
+<h4 id="其中p-h-是一个因子分布，满足-p-h-prod-p-h-i-。接下来，在给定因子下，可以对实值的可观察变量采样"><a href="#其中p-h-是一个因子分布，满足-p-h-prod-p-h-i-。接下来，在给定因子下，可以对实值的可观察变量采样" class="headerlink" title="其中p(h)是一个因子分布，满足$p(h)= \prod p(h_{i})$。接下来，在给定因子下，可以对实值的可观察变量采样"></a>其中p(h)是一个因子分布，满足$p(h)= \prod p(h_{i})$。接下来，在给定因子下，可以对实值的可观察变量采样</h4><p>$$x = Wh + b + noise$$</p>
+<h4 id="其中噪声通常是对角化的且服从高斯分布，如下图"><a href="#其中噪声通常是对角化的且服从高斯分布，如下图" class="headerlink" title="其中噪声通常是对角化的且服从高斯分布，如下图"></a>其中噪声通常是对角化的且服从高斯分布，如下图</h4><h2 id="概率pca"><a href="#概率pca" class="headerlink" title="概率pca"></a>概率pca</h2><h4 id="在因子分析中，潜变量的先验是一个方差为单位矩阵的高斯分布"><a href="#在因子分析中，潜变量的先验是一个方差为单位矩阵的高斯分布" class="headerlink" title="在因子分析中，潜变量的先验是一个方差为单位矩阵的高斯分布"></a>在因子分析中，潜变量的先验是一个方差为单位矩阵的高斯分布</h4><p>$$h \sim N(h;0,I)$$</p>
+<h4 id="同时，假定在给定h的条件下观察值-x-i-是条件独立的。具体来说，我们可以假设噪声是从对角协方差的高斯分布中抽取出来的，协方差矩阵为-psi-diag-sigma-2-，其中-sigma-2-sigma-1-2-sigma-2-2-…-sigma-n-2-表示一个向量，每个元素表示一个向量的方差。因此，潜变量的作用是捕获不同观测变量之间的依赖关系。由于符合这条性质："><a href="#同时，假定在给定h的条件下观察值-x-i-是条件独立的。具体来说，我们可以假设噪声是从对角协方差的高斯分布中抽取出来的，协方差矩阵为-psi-diag-sigma-2-，其中-sigma-2-sigma-1-2-sigma-2-2-…-sigma-n-2-表示一个向量，每个元素表示一个向量的方差。因此，潜变量的作用是捕获不同观测变量之间的依赖关系。由于符合这条性质：" class="headerlink" title="同时，假定在给定h的条件下观察值$x_i$是条件独立的。具体来说，我们可以假设噪声是从对角协方差的高斯分布中抽取出来的，协方差矩阵为$\psi=diag(\sigma^2)$，其中$\sigma^2=[\sigma_1^2,\sigma_2^2,…,\sigma_n^2]$表示一个向量，每个元素表示一个向量的方差。因此，潜变量的作用是捕获不同观测变量之间的依赖关系。由于符合这条性质："></a>同时，假定在给定h的条件下观察值$x_i$是<strong>条件独立</strong>的。具体来说，我们可以假设噪声是从对角协方差的高斯分布中抽取出来的，协方差矩阵为$\psi=diag(\sigma^2)$，其中$\sigma^2=[\sigma_1^2,\sigma_2^2,…,\sigma_n^2]$表示一个向量，每个元素表示一个向量的方差。因此，潜变量的作用是捕获不同观测变量之间的依赖关系。由于符合这条性质：</h4><h4 id="存在随机向量-displaystyle-Z-Z-1-dots-Z-M-T-Z-Z-1-dots-Z-M-T-它的每个元素服从独立标准正态分布），向量-displaystyle-mu-mu-1-dots-mu-N-T-mu-mu-1-dots-mu-N-T-及-displaystyle-N-times-M-N-times-M-矩阵-displaystyle-A-A-满足-displaystyle-X-AZ-mu-X-AZ-mu-因此可以看出x服从多维正太分布"><a href="#存在随机向量-displaystyle-Z-Z-1-dots-Z-M-T-Z-Z-1-dots-Z-M-T-它的每个元素服从独立标准正态分布），向量-displaystyle-mu-mu-1-dots-mu-N-T-mu-mu-1-dots-mu-N-T-及-displaystyle-N-times-M-N-times-M-矩阵-displaystyle-A-A-满足-displaystyle-X-AZ-mu-X-AZ-mu-因此可以看出x服从多维正太分布" class="headerlink" title="存在随机向量 ${\displaystyle \ Z=[Z_{1},\dots ,Z_{M}]^{T}} \ Z=[Z_{1},\dots ,Z_{M}]^{T}$( 它的每个元素服从独立标准正态分布），向量 ${\displaystyle \ \mu =[\mu _{1},\dots ,\mu _{N}]^{T}} \ \mu =[\mu _{1},\dots ,\mu _{N}]^{T}$及 ${\displaystyle N\times M} N\times M $矩阵 ${\displaystyle \ A} , \ A$满足 ${\displaystyle \ X=AZ+\mu } \ X=AZ+\mu $, 因此可以看出x服从多维正太分布"></a>存在随机向量 ${\displaystyle \ Z=[Z_{1},\dots ,Z_{M}]^{T}} \ Z=[Z_{1},\dots ,Z_{M}]^{T}$( 它的每个元素服从独立标准正态分布），向量 ${\displaystyle \ \mu =[\mu _{1},\dots ,\mu _{N}]^{T}} \ \mu =[\mu _{1},\dots ,\mu _{N}]^{T}$及 ${\displaystyle N\times M} N\times M $矩阵 ${\displaystyle \ A} , \ A$满足 ${\displaystyle \ X=AZ+\mu } \ X=AZ+\mu $, 因此可以看出x服从多维正太分布</h4><h4 id="观测变量条件分布：此处-sigma-2I-是为了将PCA引入概率框架中，对之前的因子分析模型作简单的修改，使得条件方差-sigma-2I-等于同一个值"><a href="#观测变量条件分布：此处-sigma-2I-是为了将PCA引入概率框架中，对之前的因子分析模型作简单的修改，使得条件方差-sigma-2I-等于同一个值" class="headerlink" title="观测变量条件分布：此处$\sigma^2I$是为了将PCA引入概率框架中，对之前的因子分析模型作简单的修改，使得条件方差$\sigma^2I$等于同一个值"></a>观测变量条件分布：此处$\sigma^2I$是为了将PCA引入概率框架中，对之前的因子分析模型作简单的修改，使得条件方差$\sigma^2I$等于同一个值</h4><h4 id="p-theta-x-z-N-x-f-z-theta-sigma-2I"><a href="#p-theta-x-z-N-x-f-z-theta-sigma-2I" class="headerlink" title="$p_\theta(x|z) = N(x|f(z;\theta), \sigma^2I)$"></a>$p_\theta(x|z) = N(x|f(z;\theta), \sigma^2I)$</h4><h4 id="确定函数："><a href="#确定函数：" class="headerlink" title="确定函数："></a>确定函数：</h4><h4 id="f-z-theta-Wz-mu"><a href="#f-z-theta-Wz-mu" class="headerlink" title="$f(z;\theta) = Wz+\mu$"></a>$f(z;\theta) = Wz+\mu$</h4><h4 id="x-的生成过程："><a href="#x-的生成过程：" class="headerlink" title="x 的生成过程："></a>x 的生成过程：</h4><h4 id="x-Wz-mu-epsilon-其中-epsilon-sim-N-0-sigma-2I-即："><a href="#x-Wz-mu-epsilon-其中-epsilon-sim-N-0-sigma-2I-即：" class="headerlink" title="$x = Wz + \mu + \epsilon$, 其中$\epsilon \sim N(0, \sigma^2I)$,即："></a>$x = Wz + \mu + \epsilon$, 其中$\epsilon \sim N(0, \sigma^2I)$,即：</h4><p>$$<br>x \sim N(x;b,WW^T+\psi)<br>$$</p>
+<h4 id="因为-p-z-和-p-theta-x-z-都是高斯分布，且-p-theta-x-z-的均值-f-z-theta-Wz-mu-是-z-的线性函数，所以这是一个线性高斯模型。线性高斯模型有一个非常重要的性质：-p-theta-x-和-p-theta-z-x-也都是高斯分布！千万不要小瞧这个性质，这个性质保证了我们能够使用极大似然估计或者EM算法来求解PCA。如果没有这个性质的话，我们就只能借助变分法（变分AE采用的）或者对抗训练（GAN采用的）来近似-p-theta-x-和-p-theta-z-x-了。"><a href="#因为-p-z-和-p-theta-x-z-都是高斯分布，且-p-theta-x-z-的均值-f-z-theta-Wz-mu-是-z-的线性函数，所以这是一个线性高斯模型。线性高斯模型有一个非常重要的性质：-p-theta-x-和-p-theta-z-x-也都是高斯分布！千万不要小瞧这个性质，这个性质保证了我们能够使用极大似然估计或者EM算法来求解PCA。如果没有这个性质的话，我们就只能借助变分法（变分AE采用的）或者对抗训练（GAN采用的）来近似-p-theta-x-和-p-theta-z-x-了。" class="headerlink" title="因为 $p(z)$ 和 $p_\theta(x|z)$ 都是高斯分布，且 $p_\theta(x|z)$ 的均值 $f(z;\theta) = Wz+\mu $是 z 的线性函数，所以这是一个线性高斯模型。线性高斯模型有一个非常重要的性质： $p_\theta(x)$ 和$ p_\theta(z|x)$ 也都是高斯分布！千万不要小瞧这个性质，这个性质保证了我们能够使用极大似然估计或者EM算法来求解PCA。如果没有这个性质的话，我们就只能借助变分法（变分AE采用的）或者对抗训练（GAN采用的）来近似$ p_\theta(x)$ 和 $p_\theta(z|x)$ 了。"></a>因为 $p(z)$ 和 $p_\theta(x|z)$ 都是高斯分布，且 $p_\theta(x|z)$ 的均值 $f(z;\theta) = Wz+\mu $是 z 的线性函数，所以这是一个线性高斯模型。线性高斯模型有一个非常重要的性质： $p_\theta(x)$ 和$ p_\theta(z|x)$ 也都是高斯分布！千万不要小瞧这个性质，这个性质保证了我们能够使用极大似然估计或者EM算法来求解PCA。如果没有这个性质的话，我们就只能借助变分法（变分AE采用的）或者对抗训练（GAN采用的）来近似$ p_\theta(x)$ 和 $p_\theta(z|x)$ 了。</h4>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -204,57 +230,115 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/20/因子分析与概率pca/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/Parzen窗/" class="archive-article-date">
-  	<time datetime="2018-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/02/01/变分自编码器/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          变分自编码器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/12/Parzen窗/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Parzen窗</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/Parzen窗/">Parzen窗</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -277,8 +361,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
