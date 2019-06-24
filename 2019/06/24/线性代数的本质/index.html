@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Machaut&#39;s Blogs</title>
+  <title>线性代数的本质 | Machaut&#39;s Blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Machaut&apos;s Blogs">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Machaut&#39;s Blogs">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="本文写在观看线性代数的本质这一系列视频之后，作者用一种几何变换的可视化的方式简明的讲解了线性代数，想想本科时期那些令人昏昏欲睡的照着课本念经的老师，这些视频真是令人愉悦。作为自己学习的博客，简单的总结下。">
+<meta name="keywords" content="数学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性代数的本质">
+<meta property="og:url" content="http://yoursite.com/2019/06/24/线性代数的本质/index.html">
 <meta property="og:site_name" content="Machaut&#39;s Blogs">
-<meta property="og:description" content="Machaut&apos;s Blogs">
+<meta property="og:description" content="本文写在观看线性代数的本质这一系列视频之后，作者用一种几何变换的可视化的方式简明的讲解了线性代数，想想本科时期那些令人昏昏欲睡的照着课本念经的老师，这些视频真是令人愉悦。作为自己学习的博客，简单的总结下。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/06/24/线性代数的本质/img1.jpg">
+<meta property="og:updated_time" content="2019-06-24T09:15:11.861Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Machaut&#39;s Blogs">
-<meta name="twitter:description" content="Machaut&apos;s Blogs">
+<meta name="twitter:title" content="线性代数的本质">
+<meta name="twitter:description" content="本文写在观看线性代数的本质这一系列视频之后，作者用一种几何变换的可视化的方式简明的讲解了线性代数，想想本科时期那些令人昏昏欲睡的照着课本念经的老师，这些视频真是令人愉悦。作为自己学习的博客，简单的总结下。">
+<meta name="twitter:image" content="http://yoursite.com/2019/06/24/线性代数的本质/img1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Machaut&#39;s Blogs" type="application/atom+xml">
   
@@ -163,16 +167,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-线性代数的本质" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+            <article id="post-线性代数的本质" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/24/线性代数的本质/">线性代数的本质</a>
+    <h1 class="article-title" itemprop="name">
+      线性代数的本质
     </h1>
   
 
@@ -186,9 +188,48 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>本文写在观看线性代数的本质这一系列视频之后，作者用一种几何变换的可视化的方式简明的讲解了线性代数，想想本科时期那些令人昏昏欲睡的照着课本念经的老师，这些视频真是令人愉悦。作为自己学习的博客，简单的总结下。</p>
-        
+<a id="more"></a>
+<p>什么是线性代数，维基百科中的解释是线性代数是关于向量和线性映射的一个数学分支。包括线，面，子空间的研究，同时也涉及向量空间的一般性质。这段话又回到了令人昏昏欲睡的定义了。</p>
+<p>首先，什么是向量。想想向量的概念还是从高中物理老师那里获得的，在物理中叫做矢量，对应于标量的概念。标量即距离，力的大小这些概念，矢量即速度，位移，力这些。简而言之，向量就是空间中标量加上方向，且可以在空间中任意移动。</p>
+<p>在机器学习中，向量通常用来表示某一类的概率，实际的代码中用一个链表表示，那同所谓的标量的区别在哪呢？对这个链表不可随意交换任意两个维度的数值。</p>
+<p>贯穿整个线性代数的就是向量的加法和乘法了。二维空间中，两个不同向量(线性无关)的加法需要符合平行四边形法则，<img src="/2019/06/24/线性代数的本质/img1.jpg" alt="线性代数的本质\img1">两个向量的和意味着在两个不同的方向的叠加组合，试想你先沿着一个向量走，走到尽头后沿着另一个向量的方向走，最终到达的位置与原点组成的线段就是这两个向量的叠加。如果是线性相关，即二维空间中通过移动两个向量可以将它们放在一条线上，同样可以按这个策略得到最终向量。数学的操作就很简单了，将每个向量对应的分量进行简单的相加就可以得到最终的向量。而乘法操作，就是对原始向量在原来的方向上做一个拉升或者缩减的操作。在数学中，就是对应的分量和这个数相乘。</p>
+<p>再说说绕口和头疼的线性相关，线性无关。这里先要说一下向量空间。想起数学老师教我们的点动成线，线动成面，面动成体。多个向量可以张成一个空间，比如二维空间中，任意两个方向之间存在一个夹角的向量作为坐标轴，对这两个向量中任意一个向量作拉伸操作都可以表示这个二维空间中的任意一个向量。这两个带夹角的向量对张成这个二维空间做出了贡献，它们就是线性无关的。那么线性相关呢，之前说过，将两个二维向量在空间中移动，如果它们在同一条线上，那么对任意一个向量作拉伸操作是得不到一个二维空间的，只会得到一条无限延长的线，那么它们就是线性相关的。</p>
+<p>总结一下，线性相关，就是一个向量可以用其它向量的线性组合表示。就是这个新的向量已经落入了其它向量的线性组合张成的空间，加入这个向量并不会对原来的空间产生影响。</p>
+<p>$$<br>w = \alpha u+ \beta v<br>$$</p>
+<p>线性无关，一个向量不可以用其它向量的线性组合表示，它与其它向量的线性组合会产生一个新的空间。</p>
+<p>$$<br>w \neq \alpha u + \beta v<br>$$</p>
+<p>这就很自然的引出了空间的基的概念，张成一个空间的线性无关的向量的集合。比如二维平面构建的x-y坐标系中的i-hat和j-hat。真正有意思的部分来了！</p>
+<p>以前学矩阵乘法的时候，就是简单的背公式：<a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E5%AD%A6" title="数学" target="_blank" rel="noopener">数学</a>中，<strong>矩阵乘法</strong>（英语：matrix multiplication）是一种根据两个<a href="https://zh.wikipedia.org/wiki/%E7%9F%A9%E9%98%B5" title="矩阵" target="_blank" rel="noopener">矩阵</a>得到第三个矩阵的<a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%85%83%E8%BF%90%E7%AE%97" title="二元运算" target="_blank" rel="noopener">二元运算</a>，第三个矩阵即前两者的乘积，称为<strong>矩阵积</strong>（英语：matrix product）。设 <strong>A</strong> 是 <em>n</em>  ×  <em>m</em> 的矩阵，<strong>B</strong> 是 <em>m</em>  ×  <em>p</em> 的矩阵，则它们的矩阵积 <strong>AB</strong> 是 <em>n</em>  ×  <em>p</em> 的矩阵。<strong>A</strong> 中每一行的 <em>m</em> 个元素都与 <strong>B</strong> 中对应列的 <em>m</em> 个元素对应相乘，这些乘积的和就是 <strong>AB</strong> 中的一个元素。</p>
+<p>$$<br>\begin{bmatrix}a&amp;c \\ b&amp;d\end{bmatrix} \begin{bmatrix}x \\ y\end{bmatrix}=\begin{bmatrix}ax+cy \\ bx+dy\end{bmatrix}<br>$$</p>
+<p>现在让我们先暂时忘掉这些定义，回归到x-y坐标系中的i-hat,j-hat。我们知道，在x-y坐标系中，要到达任意一个点，我们只需要沿着x轴走n步，再沿着y轴走m步，就可以到达任一点。即整个x-y坐标系这个二维空间可以有$\overrightarrow{i}$:[0,1]，$\overrightarrow{j}$:[1,0]两个基向量的线性组合构成。</p>
+<p>$$<br>\begin{bmatrix}x \\ y \end{bmatrix} =\alpha \overrightarrow{i}+\beta\overrightarrow{j}<br>$$</p>
+<p>实际上，把矩阵相乘看作输入一个向量，然后对这个向量在一组基向量上作线性变换，之前的矩阵相乘公式可以写成这样：</p>
+<p>$$<br>\begin{bmatrix}a&amp;c\\b&amp;d\end{bmatrix} \begin{bmatrix}x \\ y\end{bmatrix}=x\begin{bmatrix}a \\ b\end{bmatrix}+y\begin{bmatrix}c \\ d\end{bmatrix}=\begin{bmatrix}ax+cy \\ bx+dy \end{bmatrix}<br>$$</p>
+<p>矩阵的乘法本质就是运动(变换)，对其中一个基向量作拉伸，再对另一个基向量缩减。当沿着多个基向量移动完成，就得到了变换后的那个向量。</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -208,16 +249,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/24/线性代数的本质/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/24/线性代数的本质/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/02/01/变分自编码器/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">变分自编码器</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -237,230 +337,14 @@
 
 
 
-
   
-    <article id="post-变分自编码器" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/01/变分自编码器/">变分自编码器</a>
-    </h1>
   
 
-        
-        <a href="/2019/02/01/变分自编码器/" class="archive-article-date">
-  	<time datetime="2019-01-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="变分自编码器"><a href="#变分自编码器" class="headerlink" title="变分自编码器"></a>变分自编码器</h1><p>变分自编码器，简而言之，就是将数据经过提取特征得到低维隐表示，然后加入噪声后重建得到新数据的过程。生成模型，众所周知，是用来生成和原始数据相似，而不同于原始数据的具备多样性的数据的神经网络。其中，变分自编码器作为经典的生成模型，和最近大火的GAN(对抗生成网络)有着不同的生成数据的方法。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/01/变分自编码器/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-因子分析与概率pca" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/20/因子分析与概率pca/">线性因子模型与概率pca</a>
-    </h1>
   
 
-        
-        <a href="/2018/07/20/因子分析与概率pca/" class="archive-article-date">
-  	<time datetime="2018-07-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="线性因子模型"><a href="#线性因子模型" class="headerlink" title="线性因子模型"></a>线性因子模型</h1><h4 id="许多深度学习的研究涉及构建输入的概率模型-P-model-x-在给定其他变量的情况下，-这样的模型可以使用概率推断来预测器环境中的任何变量。许多这样的模型还具有潜变量h-其中-P-model-x-E-h-P-model-x-h-。这些潜变量提供了另外一种数据的表示方法，通常都是些低维的表示。其中，关于潜变量的最简单的概率模型就是接下来介绍的线性因子模型。可以采用这种简单的模型来混合组成或扩展为更大的深度概率模型。"><a href="#许多深度学习的研究涉及构建输入的概率模型-P-model-x-在给定其他变量的情况下，-这样的模型可以使用概率推断来预测器环境中的任何变量。许多这样的模型还具有潜变量h-其中-P-model-x-E-h-P-model-x-h-。这些潜变量提供了另外一种数据的表示方法，通常都是些低维的表示。其中，关于潜变量的最简单的概率模型就是接下来介绍的线性因子模型。可以采用这种简单的模型来混合组成或扩展为更大的深度概率模型。" class="headerlink" title="许多深度学习的研究涉及构建输入的概率模型$P_{model}(x)$, 在给定其他变量的情况下， 这样的模型可以使用概率推断来预测器环境中的任何变量。许多这样的模型还具有潜变量h,  其中$P_{model}(x)=E_{h}P_{model}(x|h)$。这些潜变量提供了另外一种数据的表示方法，通常都是些低维的表示。其中，关于潜变量的最简单的概率模型就是接下来介绍的线性因子模型。可以采用这种简单的模型来混合组成或扩展为更大的深度概率模型。"></a>许多深度学习的研究涉及构建输入的概率模型$P_{model}(x)$, 在给定其他变量的情况下， 这样的模型可以使用概率推断来预测器环境中的任何变量。许多这样的模型还具有潜变量h,  其中$P_{model}(x)=E_{h}P_{model}(x|h)$。这些潜变量提供了另外一种数据的表示方法，通常都是些低维的表示。其中，关于潜变量的最简单的概率模型就是接下来介绍的线性因子模型。可以采用这种简单的模型来混合组成或扩展为更大的深度概率模型。</h4>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/20/因子分析与概率pca/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Parzen窗" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/12/Parzen窗/">Parzen窗</a>
-    </h1>
   
 
-        
-        <a href="/2018/07/12/Parzen窗/" class="archive-article-date">
-  	<time datetime="2018-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="非参数估计"><a href="#非参数估计" class="headerlink" title="非参数估计"></a>非参数估计</h2><p>非参数估计能处理任意的概率分布，而无需假设密度函数，主要的方法有直方图估计,K-NN,parzen窗估计。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/12/Parzen窗/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -483,8 +367,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
