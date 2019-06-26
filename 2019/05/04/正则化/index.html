@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | Machaut&#39;s Blogs</title>
+  <title>正则化 | Machaut&#39;s Blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Machaut&apos;s Blogs">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Machaut&#39;s Blogs">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="过拟合与欠拟合说正则化之前，先说下欠拟合和过拟合。欠拟合指的是模型的复杂度不够，或者训练不够，不足以很好的拟合数据。过拟合指的是模型过于复杂或者对训练数据拟合的过于好，而使得泛化能力很差，在测试集上的损失很大。">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则化">
+<meta property="og:url" content="http://yoursite.com/2019/05/04/正则化/index.html">
 <meta property="og:site_name" content="Machaut&#39;s Blogs">
-<meta property="og:description" content="Machaut&apos;s Blogs">
+<meta property="og:description" content="过拟合与欠拟合说正则化之前，先说下欠拟合和过拟合。欠拟合指的是模型的复杂度不够，或者训练不够，不足以很好的拟合数据。过拟合指的是模型过于复杂或者对训练数据拟合的过于好，而使得泛化能力很差，在测试集上的损失很大。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/05/04/正则化/img2.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/05/04/正则化/img1.png">
+<meta property="og:updated_time" content="2019-06-26T04:08:47.150Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Machaut&#39;s Blogs">
-<meta name="twitter:description" content="Machaut&apos;s Blogs">
+<meta name="twitter:title" content="正则化">
+<meta name="twitter:description" content="过拟合与欠拟合说正则化之前，先说下欠拟合和过拟合。欠拟合指的是模型的复杂度不够，或者训练不够，不足以很好的拟合数据。过拟合指的是模型过于复杂或者对训练数据拟合的过于好，而使得泛化能力很差，在测试集上的损失很大。">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/04/正则化/img2.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Machaut&#39;s Blogs" type="application/atom+xml">
   
@@ -163,74 +168,83 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-正则化" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/20/因子分析与概率pca/" class="archive-article-date">
-  	<time datetime="2018-07-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-20</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/20/因子分析与概率pca/">线性因子模型与概率pca</a>
+    <h1 class="article-title" itemprop="name">
+      正则化
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/Parzen窗/" class="archive-article-date">
-  	<time datetime="2018-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
+        
+        <a href="/2019/05/04/正则化/" class="archive-article-date">
+  	<time datetime="2019-05-04T09:32:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-04</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/Parzen窗/">Parzen窗</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="过拟合与欠拟合"><a href="#过拟合与欠拟合" class="headerlink" title="过拟合与欠拟合"></a>过拟合与欠拟合</h4><p>说正则化之前，先说下欠拟合和过拟合。欠拟合指的是模型的复杂度不够，或者训练不够，不足以很好的拟合数据。过拟合指的是模型过于复杂或者对训练数据拟合的过于好，而使得泛化能力很差，在测试集上的损失很大。<img src="/2019/05/04/正则化/img2.jpg" alt="正则化\img2"></p>
+<a id="more"></a>
+<p>根据奥卡姆剃刀原则(1287-1387): 在同样能够解释已知观测现象的假设中，我们应该选“最简单”的那个。通过控制模型的“容量”，我们能够控制模型的拟合能力。容量低的模型有较低的拟合能力，模型容量高又会倾向于过拟合。因此我们需要选择一个满足任务需求同时容量适中的模型。</p>
+<h5 id="《机器学习》-2-5-偏差与方差-周志华"><a href="#《机器学习》-2-5-偏差与方差-周志华" class="headerlink" title="《机器学习》 2.5 偏差与方差 - 周志华"></a>《机器学习》 2.5 偏差与方差 - 周志华</h5><p><strong>偏差</strong>与<strong>方差</strong>分别是用于衡量一个模型<strong>泛化误差</strong>的两个方面：</p>
+<ul>
+<li>模型的<strong>偏差</strong>，指的是模型预测的<strong>期望值</strong>与<strong>真实值</strong>之间的差；</li>
+<li>模型的<strong>方差</strong>，指的是模型预测的<strong>期望值</strong>与<strong>预测值</strong>之间的差平方和；</li>
+</ul>
+<p>在<strong>监督学习</strong>中，模型的<strong>泛化误差</strong>可<strong>分解</strong>为偏差、方差与噪声之和。</p>
+<p>$$<br>Err(x) = Bias^2+Variance+Irreducible Error<br>$$</p>
+<h6 id="导致偏差和方差的原因："><a href="#导致偏差和方差的原因：" class="headerlink" title="导致偏差和方差的原因："></a>导致偏差和方差的原因：</h6><ul>
+<li><strong>偏差</strong>通常是由于我们对学习算法做了<strong>错误的假设</strong>，或者模型的复杂度不够；<ul>
+<li>比如真实模型是一个二次函数，而我们假设模型为一次函数，这就会导致偏差的增大（欠拟合）；</li>
+<li><strong>由偏差引起的误差</strong>通常在<strong>训练误差</strong>上就能体现，或者说训练误差主要是由偏差造成的</li>
+</ul>
+</li>
+<li><strong>方差</strong>通常是由于<strong>模型的复杂度相对于训练集过高</strong>导致的；<ul>
+<li>比如真实模型是一个简单的二次函数，而我们假设模型是一个高次函数，这就会导致方差的增大（过拟合）；</li>
+<li><strong>由方差引起的误差</strong>通常体现在测试误差相对训练误差的<strong>增量</strong>上。</li>
+</ul>
+</li>
+</ul>
+<h6 id="深度学习中的偏差与方差"><a href="#深度学习中的偏差与方差" class="headerlink" title="深度学习中的偏差与方差"></a>深度学习中的偏差与方差</h6><ul>
+<li>神经网络的拟合能力非常强，因此它的<strong>训练误差</strong>（偏差）通常较小；</li>
+<li>但是过强的拟合能力会导致较大的方差，使模型的测试误差（<strong>泛化误差</strong>）增大；</li>
+<li>因此深度学习的核心工作之一就是研究如何降低模型的泛化误差，这类方法统称为<strong>正则化方法</strong>。<img src="/2019/05/04/正则化/img1.png" alt="正则化\img1"></li>
+</ul>
+<p>#### </p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -242,19 +256,115 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/04/正则化/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/06/24/线性代数的本质/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          线性代数的本质
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/02/01/变分自编码器/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">变分自编码器</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -277,8 +387,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

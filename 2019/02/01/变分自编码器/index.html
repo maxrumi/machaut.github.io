@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>变分自编码器 | Machaut&#39;s Blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="变分自编码器变分自编码器，简而言之，就是将数据经过提取特征得到低维隐表示，然后加入噪声后重建得到新数据的过程。生成模型，众所周知，是用来生成和原始数据相似，而不同于原始数据的具备多样性的数据的神经网络。其中，变分自编码器作为经典的生成模型，和最近大火的GAN(对抗生成网络)有着不同的生成数据的方法。">
+  <meta name="description" content="变分自编码器，简而言之，就是将数据经过提取特征得到低维隐表示，然后加入噪声后重建得到新数据的过程。生成模型，众所周知，是用来生成和原始数据相似，而不同于原始数据的具备多样性的数据的神经网络。其中，变分自编码器作为经典的生成模型，和最近大火的GAN(对抗生成网络)有着不同的生成数据的方法。">
 <meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="变分自编码器">
 <meta property="og:url" content="http://yoursite.com/2019/02/01/变分自编码器/index.html">
 <meta property="og:site_name" content="Machaut&#39;s Blogs">
-<meta property="og:description" content="变分自编码器变分自编码器，简而言之，就是将数据经过提取特征得到低维隐表示，然后加入噪声后重建得到新数据的过程。生成模型，众所周知，是用来生成和原始数据相似，而不同于原始数据的具备多样性的数据的神经网络。其中，变分自编码器作为经典的生成模型，和最近大火的GAN(对抗生成网络)有着不同的生成数据的方法。">
+<meta property="og:description" content="变分自编码器，简而言之，就是将数据经过提取特征得到低维隐表示，然后加入噪声后重建得到新数据的过程。生成模型，众所周知，是用来生成和原始数据相似，而不同于原始数据的具备多样性的数据的神经网络。其中，变分自编码器作为经典的生成模型，和最近大火的GAN(对抗生成网络)有着不同的生成数据的方法。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/02/01/变分自编码器/image1.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/01/变分自编码器/image2.png">
@@ -24,10 +24,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/02/01/变分自编码器/im6.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/01/变分自编码器/im7.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/01/变分自编码器/im8.png">
-<meta property="og:updated_time" content="2019-05-04T06:36:50.178Z">
+<meta property="og:updated_time" content="2019-06-26T04:04:59.095Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="变分自编码器">
-<meta name="twitter:description" content="变分自编码器变分自编码器，简而言之，就是将数据经过提取特征得到低维隐表示，然后加入噪声后重建得到新数据的过程。生成模型，众所周知，是用来生成和原始数据相似，而不同于原始数据的具备多样性的数据的神经网络。其中，变分自编码器作为经典的生成模型，和最近大火的GAN(对抗生成网络)有着不同的生成数据的方法。">
+<meta name="twitter:description" content="变分自编码器，简而言之，就是将数据经过提取特征得到低维隐表示，然后加入噪声后重建得到新数据的过程。生成模型，众所周知，是用来生成和原始数据相似，而不同于原始数据的具备多样性的数据的神经网络。其中，变分自编码器作为经典的生成模型，和最近大火的GAN(对抗生成网络)有着不同的生成数据的方法。">
 <meta name="twitter:image" content="http://yoursite.com/2019/02/01/变分自编码器/image1.png">
   
     <link rel="alternative" href="/atom.xml" title="Machaut&#39;s Blogs" type="application/atom+xml">
@@ -194,7 +194,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="变分自编码器"><a href="#变分自编码器" class="headerlink" title="变分自编码器"></a>变分自编码器</h1><p>变分自编码器，简而言之，就是将数据经过提取特征得到低维隐表示，然后加入噪声后重建得到新数据的过程。生成模型，众所周知，是用来生成和原始数据相似，而不同于原始数据的具备多样性的数据的神经网络。其中，变分自编码器作为经典的生成模型，和最近大火的GAN(对抗生成网络)有着不同的生成数据的方法。</p>
+        <p>变分自编码器，简而言之，就是将数据经过提取特征得到低维隐表示，然后加入噪声后重建得到新数据的过程。生成模型，众所周知，是用来生成和原始数据相似，而不同于原始数据的具备多样性的数据的神经网络。其中，变分自编码器作为经典的生成模型，和最近大火的GAN(对抗生成网络)有着不同的生成数据的方法。</p>
 <a id="more"></a>
 <p>变分自编码器实际上由两个部分构成，一个编码器(Encoder),一个解码器(Decoder)。</p>
 <p>其中编码器为从数据分布中采样隐变量或者潜变量z，即通过最大化概率$p(z|x$)采样z,也就是利用贝叶斯公式：<img src="/2019/02/01/变分自编码器/image1.png" alt="变分自编码器\image1"></p>
@@ -320,11 +320,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/06/24/线性代数的本质/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/05/04/正则化/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          线性代数的本质
+          正则化
         
       </div>
     </a>
@@ -478,11 +478,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">

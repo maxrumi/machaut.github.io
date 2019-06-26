@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | Machaut&#39;s Blogs</title>
+  <title>生成模型与判别模型 | Machaut&#39;s Blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Machaut&apos;s Blogs">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Machaut&#39;s Blogs">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="在写此章之前先说下分类和回归的区别，毕竟很多人非要严谨的区分二者，而且监督学习主要分为这两类。 回归问题中，我们尝试将输入变量的预测映射到一个连续的输出空间，回归问题的学习等价于函数拟合。(比如股价问题和未来七天天气预测这种预测值和时间序列相关的问题)这里还有一些恶心的区别，按照输入变量的个数，分为一元回归和多元回归；按照模型的类型，分为线性回归和非线性回归：">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="生成模型与判别模型">
+<meta property="og:url" content="http://yoursite.com/2019/06/26/生成模型与判别模型/index.html">
 <meta property="og:site_name" content="Machaut&#39;s Blogs">
-<meta property="og:description" content="Machaut&apos;s Blogs">
+<meta property="og:description" content="在写此章之前先说下分类和回归的区别，毕竟很多人非要严谨的区分二者，而且监督学习主要分为这两类。 回归问题中，我们尝试将输入变量的预测映射到一个连续的输出空间，回归问题的学习等价于函数拟合。(比如股价问题和未来七天天气预测这种预测值和时间序列相关的问题)这里还有一些恶心的区别，按照输入变量的个数，分为一元回归和多元回归；按照模型的类型，分为线性回归和非线性回归：">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-26T04:09:50.086Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Machaut&#39;s Blogs">
-<meta name="twitter:description" content="Machaut&apos;s Blogs">
+<meta name="twitter:title" content="生成模型与判别模型">
+<meta name="twitter:description" content="在写此章之前先说下分类和回归的区别，毕竟很多人非要严谨的区分二者，而且监督学习主要分为这两类。 回归问题中，我们尝试将输入变量的预测映射到一个连续的输出空间，回归问题的学习等价于函数拟合。(比如股价问题和未来七天天气预测这种预测值和时间序列相关的问题)这里还有一些恶心的区别，按照输入变量的个数，分为一元回归和多元回归；按照模型的类型，分为线性回归和非线性回归：">
   
     <link rel="alternative" href="/atom.xml" title="Machaut&#39;s Blogs" type="application/atom+xml">
   
@@ -163,74 +165,94 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-生成模型与判别模型" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/20/因子分析与概率pca/" class="archive-article-date">
-  	<time datetime="2018-07-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-20</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/20/因子分析与概率pca/">线性因子模型与概率pca</a>
+    <h1 class="article-title" itemprop="name">
+      生成模型与判别模型
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/Parzen窗/" class="archive-article-date">
-  	<time datetime="2018-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
+        
+        <a href="/2019/06/26/生成模型与判别模型/" class="archive-article-date">
+  	<time datetime="2019-06-26T02:10:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-26</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/Parzen窗/">Parzen窗</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在写此章之前先说下分类和回归的区别，毕竟很多人非要严谨的区分二者，而且监督学习主要分为这两类。</p>
+<p>回归问题中，我们尝试将输入变量的预测映射到一个连续的输出空间，回归问题的学习等价于函数拟合。(比如股价问题和未来七天天气预测这种预测值和时间序列相关的问题)这里还有一些恶心的区别，按照输入变量的个数，分为一元回归和多元回归；按照模型的类型，分为线性回归和非线性回归：</p>
+<a id="more"></a>
+<ul>
+<li><p>线性回归(Linear Regression)：输入$x$, 输出$wx+b$, 输出值为连续值。</p>
+</li>
+<li><p>对数几率回归(Logistic Regression)：在线性回归的基础上套用一个sigmoid激活函数，使得输出映射到(0,1)之间，有的人认为这是分类而不是回归，只是前面的部分和线性回归一样，但是输出值是离散的，因此应该归为分类。</p>
+</li>
+<li><p>Softmax回归(Softmax Regression)应用softmax激活函数，将对数几率回归的二分类扩展到多分类。</p>
+</li>
+</ul>
+<p>回归问题常用平方损失函数，可用最小二乘法。说了这么多，我觉得对于一个新手纠结于这些并没有什么意义。数学需要的不是天赋，而是少量的想象，但想象太过自由又会陷入疯狂—–Angus K.Rodgers。况且，机器学习的严谨性差数学差的太远了，何必纠结这些？</p>
+<p>分类问题则是将输入变量预测为多个离散的变量，分类问题的理解并不难，二分类，多分类，是猫是狗，0-9的手写字识别问题。二分类问题的评价标准：</p>
+<ol>
+<li><p>TP(正类$\to$正类)</p>
+</li>
+<li><p>FP(负类$\to$正类)</p>
+</li>
+<li><p>TN(负类$\to$负类)</p>
+</li>
+<li><p>FN(正类$\to$正类)</p>
+</li>
+</ol>
+<ul>
+<li>精准率:</li>
+</ul>
+<p>$$<br>P = \frac{TP}{TP+FP}$$<br>$$</p>
+<ul>
+<li>召回率:</li>
+</ul>
+<p>$$<br>R=\frac{TP}{TP+FN}<br>$$</p>
+<ul>
+<li>F1值:精准率和召回率的调和均值</li>
+</ul>
+<p>$$<br>\frac{2}{F1} = \frac{1}{P}+\frac{1}{R}<br>$$</p>
+<p>$$<br>F1=\frac{2TP}{2TP+FP+FN}<br>$$</p>
+<p>该到这章的主题生成模型和判别模型了，监督学习的目的是通过标注的数据得到学习到模型，并使用这些模型在测试数据上进行预测。生成模型是通过学习得到一个联合概率分布$P(X,Y)$,然后再求出条件概率分布$P(Y|X)$:</p>
+<p>$$<br>P(Y|X) = \frac{P(X,Y)}{P(X)}<br>$$</p>
+<p>朴素贝叶斯法(naive Bayes):</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -242,19 +264,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/26/生成模型与判别模型/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/06/24/线性代数的本质/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">线性代数的本质</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -277,8 +386,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
