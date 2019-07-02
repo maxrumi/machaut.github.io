@@ -17,7 +17,7 @@
 <meta property="og:description" content="深度学习中，如果说最近有什么令人瞩目的突破，毫无疑问就是GAN(生成对抗网络)了。Yann Lecun(深度学习三巨头之一，图灵奖获得者)认为在最近十年中，对抗训练(同时也被称为GAN)及其变种应该是最酷的，或者最有意思的想法。从最近的DeepFake被美国弗吉尼亚州列入非法范畴就可以知道这种神经网络给世界带来的巨大影响或者危害。GAN的应用也是广泛的，如一些图片的修复，文本到图片的翻译，甚至抗癌">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/07/02/生成对抗网络/img1.png">
-<meta property="og:updated_time" content="2019-07-02T10:31:13.350Z">
+<meta property="og:updated_time" content="2019-07-02T10:37:56.544Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="生成对抗网络">
 <meta name="twitter:description" content="深度学习中，如果说最近有什么令人瞩目的突破，毫无疑问就是GAN(生成对抗网络)了。Yann Lecun(深度学习三巨头之一，图灵奖获得者)认为在最近十年中，对抗训练(同时也被称为GAN)及其变种应该是最酷的，或者最有意思的想法。从最近的DeepFake被美国弗吉尼亚州列入非法范畴就可以知道这种神经网络给世界带来的巨大影响或者危害。GAN的应用也是广泛的，如一些图片的修复，文本到图片的翻译，甚至抗癌">
@@ -212,7 +212,7 @@
 <p>然后通过梯度上升更新参数，$\widetilde x$是生成器生成的样本：</p>
 <p>$$<br>V = \frac{1}{m}\sum_{i=1}^{m}\log D(x^i)+\frac{1}{m}\sum_{i=1}^{m}\log(1-D(\widetilde{x}^i))\\<br>\theta_{d} = \theta _{d}+\mu\nabla V(\theta_d)<br>$$</p>
 <p>而整个GAN的优化目标函数就是:</p>
-<p>$$<br>\min_{G}\max_{D}V(G,D) = \min_{G}\max_{D}\mathbb{E}<em>{x\sim p</em>{data}}[\log(D(x))]<br>$$</p>
+<p>$$<br>\min_{G}\max_{D}V(G,D)= \min_{G}\max_{D}\mathbb{E}x \sim p_{data}[\log(D(x))]\\+\mathbb{E}z\sim p{z}[\log(1-D(G(z)))]<br>$$</p>
 <p>注意，生成器最小化的是$\max V(G,D)$,而不是生成器最小化$V(G,D)$,判别器最大化$V(G,D)$。很简单，两个神经网络每个都需要他们最强的那个对手，通过对抗的方式来得到最强的自己。</p>
 
       
