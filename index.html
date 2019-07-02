@@ -186,31 +186,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>深度学习中，如果说最近有什么令人瞩目的突破，毫无疑问就是GAN(生成对抗网络)了。Yann Lecun(深度学习三巨头之一，图灵奖获得者)认为在最近十年中，对抗训练(同时也被称为GAN)及其变种应该是最酷的，或者最有意思的想法。从最近的DeepFake被美国弗吉尼亚州列入非法范畴就可以知道这种神经网络给世界带来的巨大影响或者危害。GAN的应用也是广泛的，如一些图片的修复，文本到图片的翻译，甚至抗癌药物的预测。</p>
-<p>天才想法的诞生其实就是一晚上的事情，但是Goodfellow本人学识的积累也肯定是关键因素。2014年的一个晚上，Goodfellow和刚刚毕业的博士们一起庆祝，一些朋友希望他帮忙看看手上一个棘手的项目:计算机如何自己生成图片。当时的研究人员使用的算法让计算机生成的图片通常都是模糊不清。</p>
-<p>他的朋友提出的方案是对组成的图片的元素进行复杂的统计分析然后帮助机器生成图片，这通常需要大量的数据运算，Ian Goodfellow告诉他们这根本行不通。记得前面我写过的博客有通过变分自编码器(VAE)作为生成模型的，其计算是很优美的，但其生成的图片就比较模糊了。这并不意味着VAE作为生成模型就完全被淘汰了，后面会讲到VAE和Gan的结合。</p>
-<p>接着回到这个故事的结局：当他和朋友讨论时，突然有个想法，让两个神经网络互相对抗会怎么样呢？他的朋友对此表示怀疑。</p>
-<p>当晚，他回到家就马上测试自己的想法，大牛写到凌晨，然后第一次就成功了！</p>
-<p>实际上，关于GAN的是不是第一个对抗网络是有争论的，其2014年将GAN的论文投递到NIPS,然后三位评审中的LSTM之父直接毙掉这篇论文，他认为Gan和他在1992年提出的PM模型有很多相似之处，后来GAN之父Goodfellow无奈下在论文中比较了和PM的不同。当然，这二位都是牛人，尤其LSTM之父更是毫无疑问的人工智能巨头。在中国刚刚改革开放的时候，15岁的LSTM之父就认为通用人工智能一定会实现。</p>
-<p>扯了这么多故事，接下来直接说GAN的核心思想。</p>
-<p>GAN的核心思想就是两个神经网络的对抗。GAN由两个神经网络组成，一个叫做生成器(Generator)，一个叫做判别器(Discriminator)。生成器用来生成图片，判别器则通过二分类的方式判断生成器生成的图片是否是真实的(或者是计算机生成的)。二者通过一种博弈的方式进行训练，直到达到纳什均衡，也就是一个超强判别器的已经无法识别生成器生成的图片是真是假了(P(fake or truth)=0.5)。<img src="/2019/07/02/生成对抗网络/img1.png" alt="生成对抗网络\img1"></p>
-<p>生成器通过一个低维的隐变量$z$(从一个概率分布中采样得到的随机噪声)生成图片，因此初次迭代产生的图片肯定是一些毫无意义的噪声。也有直接通过变分自编码器从纯净图片提取低维隐表示的VAE-GAN，即VAE作为生成器，初次迭代就可产生很好的图片。</p>
-<p>GAN的训练是通过生成器和判别器的交替迭代训练实现的，对于生成器，其目标是要最小化</p>
-<p>$$<br>\mathbb{E}z\sim p_{z}[log(1-D(G(z)))]<br>$$</p>
-<ul>
-<li>训练算法：</li>
-</ul>
-<p>Initialize $\theta_{g}$ for Generator G</p>
-<p>Sample m noise samples{${Z^{1},Z^{2},Z^{3},…,Z^{m}}$}from a distribution</p>
-<p>Update generator parameters $\theta_{g}$ to maximize</p>
-<p>$$<br>V = \frac{1}{m}\sum_{i=1}^{m}log(D(G(z^{i})))\\<br>\theta_{g^{‘}} = \theta_{g}-\mu\nabla V(\theta_{g})<br>$$</p>
-<p>而对于判别器，其目标是为了尽可能的识别出生成的图片是来假的。因此通过对抗训练的方式，不断给判别器喂这种生成出来并标注为假的图片可以提升判别器的能力。对于一个分类的判别器，其使用的就是常用的分类网络中的交叉熵损失函数，其目标也就是最大化：</p>
-<p>$$<br>\mathbb{E}x\sim p_{data}[logD(x)]<br>$$</p>
-<p>然后通过梯度上升更新参数，$\widetilde x$是生成器生成的样本：</p>
-<p>$$<br>V = \frac{1}{m}\sum_{i=1}^{m}\log D(x^i)+\frac{1}{m}\sum_{i=1}^{m}\log(1-D(\widetilde{x}^i))\\<br>\theta_{d} = \theta _{d}+\mu\nabla V(\theta_d)<br>$$</p>
-<p>而整个GAN的优化目标函数就是：</p>
-<p>$$<br>\min_{G}\max_{D}V(G,D) = \min_{G}\max_{D}\mathbb{E}<em>{x\sim p</em>{data}}[\log(D(x))]+\mathbb{E}<em>{z\sim p</em>{z}}[\log(1-D(G(z)))]<br>$$</p>
-<p>注意，生成器最小化的是$\max V(G,D)$,而不是生成器最小化$V(G,D)$,判别器最大化$V(G,D)$。很简单，两个神经网络每个都需要他们最强的那个对手，通过对抗的方式来得到最强的自己。</p>
-
+        
       
 
       
@@ -822,11 +798,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
