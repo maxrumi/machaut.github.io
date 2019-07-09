@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Machaut&#39;s Blogs">
 <meta property="og:description" content="在写此章之前先说下分类和回归的区别，毕竟很多人非要严谨的区分二者，而且监督学习主要分为这两类。 回归问题中，我们尝试将输入变量的预测映射到一个连续的输出空间，回归问题的学习等价于函数拟合。(比如股价问题和未来七天天气预测这种预测值和时间序列相关的问题)这里还有一些恶心的区别，按照输入变量的个数，分为一元回归和多元回归；按照模型的类型，分为线性回归和非线性回归：">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-26T04:09:50.086Z">
+<meta property="og:updated_time" content="2019-07-09T04:47:53.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="生成模型与判别模型">
 <meta name="twitter:description" content="在写此章之前先说下分类和回归的区别，毕竟很多人非要严谨的区分二者，而且监督学习主要分为这两类。 回归问题中，我们尝试将输入变量的预测映射到一个连续的输出空间，回归问题的学习等价于函数拟合。(比如股价问题和未来七天天气预测这种预测值和时间序列相关的问题)这里还有一些恶心的区别，按照输入变量的个数，分为一元回归和多元回归；按照模型的类型，分为线性回归和非线性回归：">
@@ -211,7 +211,7 @@
 <ul>
 <li>精准率:</li>
 </ul>
-<p>$$<br>P = \frac{TP}{TP+FP}$$<br>$$</p>
+<p>$$<br>P = \frac{TP}{TP+FP}<br>$$</p>
 <ul>
 <li>召回率:</li>
 </ul>
@@ -223,7 +223,40 @@
 <p>$$<br>F1=\frac{2TP}{2TP+FP+FN}<br>$$</p>
 <p>该到这章的主题生成模型和判别模型了，监督学习的目的是通过标注的数据得到学习到模型，并使用这些模型在测试数据上进行预测。生成模型是通过学习得到一个联合概率分布$P(X,Y)$,然后再求出条件概率分布$P(Y|X)$:</p>
 <p>$$<br>P(Y|X) = \frac{P(X,Y)}{P(X)}<br>$$</p>
-<p>朴素贝叶斯法(naive Bayes):</p>
+<p>典型的生成模型方法有朴素贝叶斯法(naive Bayes)和隐马尔可夫模型。</p>
+<h6 id="朴素贝叶斯法"><a href="#朴素贝叶斯法" class="headerlink" title="朴素贝叶斯法"></a>朴素贝叶斯法</h6><p>朴素贝叶斯法是基于贝叶斯定理和特征条件独立假设这一较强的假设的方法，通过求得联合概率分布，然后通过贝叶斯公式求后验概率，并通过参数估计方法贝叶斯估计或者最大似然估计最大化后验概率。</p>
+<p>根据贝叶斯公式：</p>
+<p>$$<br>P(Y|X) = \frac{P(X,Y)}{P(X)} = \frac{P(X|Y)P(Y)}{\sum_{Y}P(Y)P(X|Y)}<br>$$</p>
+<p>条件独立假设(当Y固定即特征的类别固定时不同的特征都是独立的):</p>
+<p>$$<br>P(X=x|Y) \\= P(X^{(1)}=x^{(1)},X^{(2)}=x^{(2)},…,X^{(n)}=x^{(n)}|Y)\\=\prod_{i}^{n}P(X^{(i)}=x^{(i)}|Y)<br>$$</p>
+<p>在条件独立性假设下，若$X^i$的取值为$S^i$个，Y的取值为K个，则条件概率$P(X=x|Y)$的参数个数为$K\sum_{i=1}^{n}S^i$，否则就可能有指数个参数，因此条件独立性假设使得朴素贝叶斯方法变得简单。但是这种强行的假设就像之前生成模型中VAE假设数据的概率分布是高斯分布一样，产生的图片就会很模糊。回到朴素贝叶斯分布，这种强假设就会导致分类的性能不高(准确率不高)。</p>
+<p>为了求后验概率$P(Y|X)$，问题就分解为求先验概率$P(Y)$和条件概率$P(X|Y)$，关于条件概率$P(Y)$，有不同的估计方法：</p>
+<p>极大似然估计：$P(Y=c_k)=\frac{\sum_{i=1}^{n}I(y=c_k)}{N}$             (1)</p>
+<p>贝叶斯估计：$P_{\lambda}=\frac{\sum_{i=1}^{n}I(y_{i}=c_k)+\lambda}{N+k\lambda}$                            (2)</p>
+<p>式子中，I为指示函数，k为Y的取值可能个数，即类别数，$\lambda\ge0$。由于极大似然估计可能会产生概率为0的情况，因此贝叶斯估计中通过添加一个正数$\lambda$，这样所有的先验概率和条件概率都大于0。区别的，当$\lambda=0$,贝叶斯估计就是极大似然估计，当$\lambda=1$则叫做拉普拉斯平滑。</p>
+<p>而对于条件概率：</p>
+<p>极大似然估计：$P(X^i=a^{il}|Y=c_k) = \frac{\sum_{i=1}^n I(X^i=a^{il},Y_i=c_k)}{\sum_{i=1}^{n}I(y_i = c_k)}$</p>
+<p>贝叶斯估计：$P(X^i=a^{il}|Y=c_k) = \frac{\sum_{i=1}^n I(X^i=a^{il},Y_i=c_k)+\lambda}{\sum_{i=1}^{n}I(y_i = c_k)+S_i\lambda}$</p>
+<p>对于联合概率：</p>
+<p>极大似然估计：$P(X^i=a_{il},Y=c_k) = \frac{\sum_{i=1}^n I(X^i=a^{il},Y_i=c_k)}{N}$</p>
+<p>贝叶斯估计：$P(X^i=a_{il},Y=c_k) = \frac{\sum_{i=1}^n I(X^i=a^{il},Y_i=c_k)+\lambda}{N+KS_i\lambda}$</p>
+<h4 id="具体的推导："><a href="#具体的推导：" class="headerlink" title="具体的推导："></a>具体的推导：</h4><h6 id="极大似然估计："><a href="#极大似然估计：" class="headerlink" title="极大似然估计："></a>极大似然估计：</h6><p>证明$P(Y=c_k)=\frac{\sum_{i=1}^{n}I(y=c_k)}{N}$:</p>
+<p>设$p= P(Y=c_k)$,假设从样本中独立同分布的抽取N个样本，每个样本为$y_i$,则似然概率:$P(y_1,y_2,y_3,…,y_n)=p^{\sum_{i=1}^nI(y_i=c_k)}(1-p)^{\sum_{i=1}^{n}y_i\neq c_k}=p^a(1-p)^b$</p>
+<p>$$<br>\frac{\partial P(y_1,y_2,..,y_n)}{\partial p} = (p^a)^\prime (1-p)^b+p^a((1-p)^b)^\prime\\=ap^{a-1}(1-p)^b-bp^a(1-p)^{b-1}\\=p^{a-1}(1-p)^{b-1}(a(1-p)-bp)=0<br>\\a = p(a+b) = pN<br>$$</p>
+<p>因此极大似然估计就是</p>
+<p>$$<br>p = \frac{a}{N} \\\ P(Y_i=c_k)=\frac{\sum_{i=1}^nI(y_i = c_k)}{N}(公式一)<br>$$</p>
+<p>同理:</p>
+<p>$$<br>P(Y=c_k,x^i=a_{il}) = \frac{\sum_{i=1}^nI(y_i = c_k,x^i = a_{il})}{N}(公式二)<br>$$</p>
+<p>带入公式一和二到贝叶斯公式，得到条件概率：</p>
+<p>$$<br>P(X^i=a_{il}|Y=c_k) = \frac{P(Y=c_k,x^i = a_{il})}{P(Y=c_k)}=\frac{\sum_{i=1}^nI(y_i=c_k,x^i = a_{il})}{\sum_{i=1}^{n}I(y_i = c_k)}<br>$$</p>
+<p>利用贝叶斯估计推导$P_{\lambda}=\frac{\sum_{i=1}^{n}I(y_{i}=c_k)+\lambda}{N+k\lambda}$</p>
+<p>证明：假设先验概率为均匀概率$p = \frac{1}{k}$,通过上面极大似然估计得到得先验概率约束：$p = \frac{a}{N}$,结合二者有$(pk-1)\lambda+pN-a=0$,因此：</p>
+<p>$$<br>p = \frac{\lambda+a}{\lambda K+N}<br>\\P_{\lambda}=\frac{\sum_{i=1}^{n}I(y_{i}=c_k)+\lambda}{N+K\lambda}<br>$$</p>
+<p>同理：$P(X^i=a_{il},Y=c_k) = \frac{\sum_{i=1}^n I(X^i=a^{il},Y_i=c_k)+\lambda}{N+KS_i\lambda}$</p>
+<p>带入贝叶斯公式：</p>
+<p>$$<br>P(X^i=a_{il}|Y=c_k) = \frac{P(Y=c_k,x^i = a_{il})}{P(Y=c_k)}\\=\frac{\sum_{i=1}^n I(X^i=a^{il},Y_i=c_k)+\lambda}{N+KS_i\lambda} \div \frac{\sum_{i=1}^{n}I(y_{i}=c_k)+\lambda}{N+K\lambda}<br>$$</p>
+<p>令右边式子中$\lambda=S_i\lambda$,得到：</p>
+<p>$$<br>P(X^i=a_{il}|Y=c_k) = \frac{\sum_{i=1}^n I(X^i=a^{il},Y_i=c_k)+\lambda}{\sum_{i=1}^{n}I(y_i = c_k)+S_i\lambda}<br>$$</p>
 
       
 
